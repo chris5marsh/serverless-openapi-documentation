@@ -154,7 +154,7 @@ export class ServerlessOpenApiDocumentation {
       break;
     case 'yaml':
     default:
-      output = YAML.safeDump(definition, { indent: config.indent });
+      output = YAML.dump(definition, { indent: config.indent });
       break;
     }
 

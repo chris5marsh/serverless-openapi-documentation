@@ -32,6 +32,7 @@ export class DefinitionGenerator {
       version = uuid.v4(),
       models,
       securitySchemes,
+      security,
     } = this.config;
 
     merge(this.definition, {
@@ -41,6 +42,7 @@ export class DefinitionGenerator {
       components: {
         schemas: {},
         securitySchemes,
+        security,
       },
     });
 
@@ -154,6 +156,14 @@ export class DefinitionGenerator {
     }
 
     operationObj.responses = this.getResponsesFromConfig(documentationConfig);
+
+    if (operationObj.security) {
+      operationObj.security = documentationConfig.security;
+    }
+
+    if (operationObj.requestHeaders) {
+      operationObj.requestHeaders = documentationConfig.requestHeaders;
+    }
 
     return operationObj;
   }

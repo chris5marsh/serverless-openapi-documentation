@@ -13,6 +13,7 @@ export interface IDefinitionConfig {
   version?: string;
   models: IModels[];
   securitySchemes: ISecurityScheme;
+  security: any[];
 }
 
 export interface IDefinitionType {
@@ -42,6 +43,7 @@ export interface IOperation {
   operationId?: string;
   parameters?: IParameterConfig[];
   requestBody?: any;
+  requestHeaders?: any[];
   responses?: any;
   callbacks?: any;
   deprecated?: boolean;
